@@ -5,12 +5,7 @@ const bookRouter = express.Router();
 const port = process.env.PORT;
 
 bookRouter.route('/books')
-  .get((req, res) => {
-    const response = { hello: 'this is my book route' };
-    res.json(response);
-  });
-
-app.use('/api', bookRouter);
+  .get()
 
 app.get('/', (req, res) => {
   res.send('Welcome to my REST API');

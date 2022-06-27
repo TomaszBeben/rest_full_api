@@ -10,8 +10,6 @@ bookRouter.route('/books')
     res.json(response);
   });
 
-app.use('/api', bookRouter);
-
 app.get('/', (req, res) => {
   res.send('Welcome to my REST API');
 });
