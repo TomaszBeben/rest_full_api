@@ -8,9 +8,9 @@ const port = process.env.PORT;
 const db = mongoose.connect('mongodb://localhost/RestApi');
 const Book = require('./models/bookModel');
 
-bookRouter.route('/books')
+bookRouter.route('/Books')
   .get((req, res) => {
-    Book.find((err, books) => {
+    Book.find((err, Books) => {
       if (err) {
         return res.send(err);
       }

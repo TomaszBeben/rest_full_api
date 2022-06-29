@@ -1,11 +1,12 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 const app = express();
 const bookRouter = express.Router();
 const port = process.env.PORT;
 
-const db = mongoose.connect('mongodb://localhost/RestApi');
+// const db = mongoose.connect('mongodb://localhost:27017/RestApi');
+// console.log(db);
 const Book = require('./models/bookModel');
 
 bookRouter.route('/books')

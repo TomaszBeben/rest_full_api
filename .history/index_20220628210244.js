@@ -5,16 +5,17 @@ const app = express();
 const bookRouter = express.Router();
 const port = process.env.PORT;
 
-const db = mongoose.connect('mongodb://localhost/RestApi');
+const db = mongoose.connect('mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false');
 const Book = require('./models/bookModel');
 
 bookRouter.route('/books')
   .get((req, res) => {
     Book.find((err, books) => {
-      if (err) {
-        return res.send(err);
+      if(err){
+        res.send(err)
+      }else{
+        res.json(books)
       }
-      return res.json(books);
     });
   });
 

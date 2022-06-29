@@ -5,7 +5,7 @@ const app = express();
 const bookRouter = express.Router();
 const port = process.env.PORT;
 
-const db = mongoose.connect('mongodb://localhost/RestApi');
+mongoose.connect('mongodb://localhost:27017/RestApi');
 const Book = require('./models/bookModel');
 
 bookRouter.route('/books')

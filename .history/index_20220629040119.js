@@ -10,11 +10,11 @@ const Book = require('./models/bookModel');
 
 bookRouter.route('/books')
   .get((req, res) => {
-    Book.find((err, books) => {
+    Book.find((err, elo) => {
       if (err) {
         return res.send(err);
       }
-      return res.json(books);
+      return res.json(elo);
     });
   });
 
