@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT;
-mongoose.connect('mongodb://localhost:27017/RestApi');
+const db = mongoose.connect('mongodb://localhost:27017/RestApi');
 const Book = require('./models/bookModel');
-const bookRouter = require('./routes/bookRouter')(Book);
+const bookRouter = require('./routes/bookRouter')();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
