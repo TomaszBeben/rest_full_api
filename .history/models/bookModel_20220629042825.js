@@ -9,7 +9,7 @@ const bookModel = new Schema(
     genre: { type: String },
     read: { type: Boolean, default: false },
   },
-  { collection: 'books' }, // collection name changer
+  { collection: 'inne' }, // collectiion name changer
 );
 
 module.exports = mongoose.model('Book', bookModel);
