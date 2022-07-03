@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 const express = require('express');
-const booksController = require('../controllers/booksController');
+const booksController = require('../controllers/booksController')();
 
 function routes(Book) {
   const bookRouter = express.Router();
@@ -8,7 +8,7 @@ function routes(Book) {
 
   bookRouter.route('/books')
     .post(controller.post)
-    .get(controller.get);
+    .get(controller.get)
 
   bookRouter.use('/books/:id', (req, res, next) => {
     Book.findById(req.params.id, (err, book) => {

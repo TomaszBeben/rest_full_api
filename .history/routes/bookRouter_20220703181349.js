@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 const express = require('express');
-const booksController = require('../controllers/booksController');
 
 function routes(Book) {
   const bookRouter = express.Router();

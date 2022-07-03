@@ -8,7 +8,7 @@ function routes(Book) {
 
   bookRouter.route('/books')
     .post(controller.post)
-    .get(controller.get);
+    .get(controller.get)
 
   bookRouter.use('/books/:id', (req, res, next) => {
     Book.findById(req.params.id, (err, book) => {
