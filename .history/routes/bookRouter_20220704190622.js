@@ -30,6 +30,7 @@ function routes(Book) {
   // one book routes
   bookRouter.route('/books/:id')
     .get(singleBookController.get)
+
     .put(singleBookController.put)
 
     .patch((req, res) => {

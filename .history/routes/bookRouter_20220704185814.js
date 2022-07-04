@@ -1,12 +1,11 @@
 /* eslint-disable no-param-reassign */
 const express = require('express');
 const booksController = require('../controllers/booksController');
-const oneBookController = require('../controllers/oneBookController');
+const oneBookController = require('../controllers/oneBookController')
 
 function routes(Book) {
   const bookRouter = express.Router();
   const allBooksController = booksController(Book);
-  const singleBookController = oneBookController();
 
   // all books route
   bookRouter.route('/books')
@@ -29,8 +28,21 @@ function routes(Book) {
 
   // one book routes
   bookRouter.route('/books/:id')
-    .get(singleBookController.get)
-    .put(singleBookController.put)
+    .get((req, res) => res.json(req.book))
+
+    .put((req, res) => {
+      const { book } = req;
+      book.title = req.body.title;
+      book.author = req.body.author;
+      book.genre = req.body.genre;
+      book.read = req.body.read;
+      req.book.save((error) => {
+        if (error) {
+          return res.send(error);
+        }
+        return res.json(book);
+      });
+    })
 
     .patch((req, res) => {
       const { book } = req;

@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT;
 
-if (process.env.ENV === 'Test') {
+if (process.env.ENV === 'TEST') {
   console.log('This is a test');
   mongoose.connect('mongodb://localhost:27017/bookApi_Test');
 } else {

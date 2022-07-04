@@ -30,7 +30,20 @@ function routes(Book) {
   // one book routes
   bookRouter.route('/books/:id')
     .get(singleBookController.get)
-    .put(singleBookController.put)
+
+    .put((req, res) => {
+      const { book } = req;
+      book.title = req.body.title;
+      book.author = req.body.author;
+      book.genre = req.body.genre;
+      book.read = req.body.read;
+      req.book.save((error) => {
+        if (error) {
+          return res.send(error);
+        }
+        return res.json(book);
+      });
+    })
 
     .patch((req, res) => {
       const { book } = req;

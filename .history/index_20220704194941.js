@@ -4,15 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT;
-
-if (process.env.ENV === 'Test') {
-  console.log('This is a test');
-  mongoose.connect('mongodb://localhost:27017/bookApi_Test');
-} else {
-  console.log('This is real DB');
-  mongoose.connect('mongodb://localhost:27017/RestApi');
-}
-
+mongoose.connect('mongodb://localhost:27017/RestApi');
 const Book = require('./models/bookModel');
 const bookRouter = require('./routes/bookRouter')(Book);
 
@@ -29,4 +21,4 @@ app.listen(port, () => {
   console.log(`App listening on port: ${port}`);
 });
 
-module.exports = app;
+module.exports = index;
